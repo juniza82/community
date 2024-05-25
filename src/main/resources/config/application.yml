@@ -1,0 +1,32 @@
+spring:
+  security:
+    user:
+      name: community
+      password: community
+  jpa:
+    open-in-view: false
+  # 참조 경로 설정
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    # thymeleaf 사용 설정
+    enabled: true
+    # templates 디렉토리에 파일이 없으면 에러 발생
+    check-template-location: true
+
+springdoc:
+  swagger-ui:
+    version: v2
+    path: /swagger-ui.html
+    enabled: true
+  paths-to-exclude:
+    - /test/**
+    - /dev/**
+    - /settings/**
+    - /redis/**
+
+
+
+
+
+
