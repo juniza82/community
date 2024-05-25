@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.community.internal.repository.mapper.UsersTableMapper">
+
+    <select id="selectUsersTotalCnt" resultType="Integer">
+        SELECT COUNT(*) AS cnt
+        FROM users
+    </select>
+
+    <!--
+    <select id="selectEodingCompanyMyHotelByTravelAgentIdAndDeleteFlagTrue" parameterType="List"
+            resultType="kr.co.eoding.hotelota.expedia.dto.EodingCompanyMyHotelDto">
+        SELECT id AS id,
+        travel_agent_id AS travelAgentId,
+        property_id AS propertyId,
+        property_name AS propertyName,
+        property_nation AS propertyNation,
+        property_city AS propertyCity,
+        property_rank AS propertyRank,
+        delete_flag AS isCart,
+        front_flag AS isFront,
+        created_date AS createdDate,
+        created_user_id AS createdUserId,
+        updated_date AS updatedDate,
+        updated_user_id AS updatedUserId
+        FROM eoding_company_my_hotel
+        WHERE travel_agent_id = CAST(#{travelAgentId} AS INTEGER)
+        <if test="deleteFlag">
+            AND delete_flag = true
+        </if>
+        AND property_id in
+        <foreach collection="propertyIds" item="propertyId" index="index" separator="," open="(" close=")">
+            #{propertyId}
+        </foreach>
+    </select>
+
+    <select id="selectEodingCompanyMyHotelByTravelAgentIdAndPageAndSize" parameterType="kr.co.eoding.hotelota.expedia.dto.EodingCompanyMyHotelRequestDto"
+            resultType="kr.co.eoding.hotelota.expedia.dto.EodingCompanyMyHotelDto">
+        SELECT id AS id,
+               travel_agent_id AS travelAgentId,
+               property_id AS propertyId,
+               property_name AS propertyName,
+               property_nation AS propertyNation,
+               property_city AS propertyCity,
+               property_rank AS propertyRank,
+               delete_flag AS isCart,
+               front_flag AS isFront,
+               created_date AS createdDate,
+               created_user_id AS createdUserId,
+               updated_date AS updatedDate,
+               updated_user_id AS updatedUserId
+        FROM eoding_company_my_hotel
+        WHERE travel_agent_id = CAST(#{travelAgentId} AS INTEGER)
+          AND property_name LIKE '%'||#{searchText}||'%'
+        ORDER BY property_name ASC
+            LIMIT #{size} OFFSET #{page}
+    </select>
+    -->
+
+</mapper>

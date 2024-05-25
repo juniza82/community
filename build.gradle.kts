@@ -5,6 +5,8 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.5"
 	kotlin("jvm") version "1.9.24"
 	kotlin("plugin.spring") version "1.9.24"
+	//for querydsl
+	kotlin("kapt") version "1.9.21"
 }
 
 group = "com.company"
@@ -20,7 +22,6 @@ repositories {
 }
 
 dependencies {
-	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -33,6 +34,7 @@ dependencies {
 
 	implementation("io.awspring.cloud:spring-cloud-starter-aws-secrets-manager-config:2.4.4")
 
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
 	implementation("org.opensearch.client:spring-data-opensearch-starter:1.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 	implementation ("org.springframework.boot:spring-boot-starter-data-redis")
@@ -58,7 +60,11 @@ dependencies {
 	implementation("net.gpedro.integrations.slack:slack-webhook:1.4.0") // slack messenger
 
 	// https://modelmapper.org/
-	implementation("org.modelmapper:modelmapper:3.0.0")
+	implementation("org.modelmapper:modelmapper:3.2.0")
+
+	//querydsl
+	implementation("com.querydsl:querydsl-jpa:5.0.0")
+	kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
 
 	// 한타영타 뒤집기 (https://github.com/kimcore/inko.kt)
 	implementation("com.github.kimcore", "inko.kt", "1.2")

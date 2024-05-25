@@ -16,8 +16,7 @@ import javax.sql.DataSource
 
 @Suppress("unused")
 @Configuration
-//@MapperScan(basePackages = ["com.yoon.headspa.*.repository.mapper"])
-@MapperScan(basePackages = ["com.company.community.*"])
+@MapperScan(basePackages = ["com.company.community.*.repository.mapper"])
 class DataSourceConfig(
     @Value("\${spring.datasource.driver-class-name}")
     val driverClassName: String,

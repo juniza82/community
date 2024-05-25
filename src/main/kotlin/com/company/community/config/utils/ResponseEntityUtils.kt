@@ -10,11 +10,11 @@ class ResponseEntityUtils {
         private val anyRm = AnyRm()
         fun getSuccessResponseDto(): ResponseEntity<AnyRm> = ResponseEntity(anyRm.apply {
             this.message = "Request Completed"
-            this.code = "HEADSPA"
+            this.code = "COMMUNITY"
         }, HttpStatus.OK)
         fun getFailedResponseDto(): ResponseEntity<AnyRm> = ResponseEntity(anyRm.apply {
             this.message = "Request Failed"
-            this.code = "HEADSPA"
+            this.code = "COMMUNITY"
         }, HttpStatus.INTERNAL_SERVER_ERROR)
 
         fun <T> getResponseDto(status: HttpStatus, message: String, code: String, body: T?): ResponseEntity<AnyRm> =

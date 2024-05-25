@@ -12,7 +12,7 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     driver-class-name: org.mariadb.jdbc.Driver
     # DEV
-#    url: jdbc:log4jdbc:mysql://https://juniza82.synology.me:33077/yheadspa
+#    url: jdbc:log4jdbc:mysql://https://juniza82.synology.me:33077/community
     url: jdbc:log4jdbc:mariadb://juniza82.synology.me:33077/community
     username: juniza82
     password: Lej281500!@
@@ -64,8 +64,8 @@ jwt:
   secret-key: BMXDcZQGBFnKNYCYRgsIxiFQR
 
 aes:
-  key: HEADSPA_KEY_12345
-  iv: HEADSPA_IV_12345
+  key: COMMUNITY_KEY_12345
+  iv: COMMUNITY_IV_12345
 
 logging:
   level:

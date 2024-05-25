@@ -21,7 +21,7 @@ class OpenApiDocConfig {
                 Info().also { info ->
                     info.title = "Community API"
                     info.version = appVersion
-                    info.description = "HeadSpa SpringDoc"
+                    info.description = "Community SpringDoc"
                     info.termsOfService = "https://swagger.io/terms/"
                     info.license =
                         License().also { license ->
