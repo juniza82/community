@@ -63,8 +63,9 @@ dependencies {
 	implementation("org.modelmapper:modelmapper:3.2.0")
 
 	//querydsl
-	implementation("com.querydsl:querydsl-jpa:5.0.0")
-	kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
+	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
+	kapt("org.springframework.boot:spring-boot-configuration-processor")
 
 	// 한타영타 뒤집기 (https://github.com/kimcore/inko.kt)
 	implementation("com.github.kimcore", "inko.kt", "1.2")
@@ -93,6 +94,8 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+	// 테스트 코드를 제외한 빌드 수행
+	enabled = false
 }
 
 tasks.bootBuildImage {

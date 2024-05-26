@@ -28,8 +28,8 @@ spring:
 #    uris: 3.34.190.160:9201
 #    username: admin
 #    password: admin
-  autoconfigure:
-    exclude: org.opensearch.spring.boot.autoconfigure.OpenSearchRestClientAutoConfiguration
+#  autoconfigure:
+#    exclude: org.opensearch.spring.boot.autoconfigure.OpenSearchRestClientAutoConfiguration
   codec:
     max-in-memory-size: 4096
 #  data:

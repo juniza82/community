@@ -5,7 +5,7 @@ import com.company.community.common.provider.SlackProvider
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.batch.core.repository.JobRepository
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations
+//import org.springframework.data.elasticsearch.core.ElasticsearchOperations
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 class TestController(
     private val objectMapper: ObjectMapper,
     private val jobRepository: JobRepository,
-    private val elasticsearchOperations: ElasticsearchOperations,
+//    private val elasticsearchOperations: ElasticsearchOperations,
     private val slackProvider: SlackProvider,
 
 //    private val testService: TestService,
