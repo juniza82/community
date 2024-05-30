@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service
 
 @Service
 class TestService(
-    final val usersEntityRepository: UsersEntityRepository,
+//    final val usersEntityRepository: UsersEntityRepository,
 //    final val usersMapper: UsersMapper,
 ) {
     
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
 
-    fun testtestSer(
-//        searchText: String,
-//        pageable: Pageable
-    ): List<UsersEntity> {
-        return usersEntityRepository.findAll()
-    }
+//    fun testtestSer(
+////        searchText: String,
+////        pageable: Pageable
+//    ): List<UsersEntity> {
+//        return usersEntityRepository.findAll()
+//    }
 
 }

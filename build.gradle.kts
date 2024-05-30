@@ -1,5 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+val jdslVersion = "3.4.1"
+
 plugins {
 	id("org.springframework.boot") version "3.3.0"
 	id("io.spring.dependency-management") version "1.1.5"
@@ -62,10 +64,11 @@ dependencies {
 	// https://modelmapper.org/
 	implementation("org.modelmapper:modelmapper:3.2.0")
 
-	//querydsl
-	implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
-	kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
-	kapt("org.springframework.boot:spring-boot-configuration-processor")
+	//kotlin-jdsl
+	implementation("com.linecorp.kotlin-jdsl:jpql-dsl:$jdslVersion")
+	implementation("com.linecorp.kotlin-jdsl:jpql-render:$jdslVersion")
+	implementation("com.linecorp.kotlin-jdsl:spring-data-jpa-support:$jdslVersion")
+
 
 	// 한타영타 뒤집기 (https://github.com/kimcore/inko.kt)
 	implementation("com.github.kimcore", "inko.kt", "1.2")

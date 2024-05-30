@@ -30,6 +30,8 @@ class UserService(
         // mpdelMapper를 이용하여 Entity -> Dto 로 복사.
         var b = modelMapper.map(a, UserDto::class.java)
 
+        var aa = usersEntityRepository.findByUserName("김종현")
+        println(aa)
 
         // myBatis 를 이용한 쿼리
         var mapperCnt = usersMapper.selectUsersTotalCnt()
