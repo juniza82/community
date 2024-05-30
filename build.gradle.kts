@@ -7,8 +7,6 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.5"
 	kotlin("jvm") version "1.9.24"
 	kotlin("plugin.spring") version "1.9.24"
-	//for querydsl
-	kotlin("kapt") version "1.9.21"
 }
 
 group = "com.company"
@@ -64,11 +62,13 @@ dependencies {
 	// https://modelmapper.org/
 	implementation("org.modelmapper:modelmapper:3.2.0")
 
+	// 데이터베이스 버전 관리
+//	implementation("org.flywaydb:flyway-core")
+
 	//kotlin-jdsl
 	implementation("com.linecorp.kotlin-jdsl:jpql-dsl:$jdslVersion")
 	implementation("com.linecorp.kotlin-jdsl:jpql-render:$jdslVersion")
 	implementation("com.linecorp.kotlin-jdsl:spring-data-jpa-support:$jdslVersion")
-
 
 	// 한타영타 뒤집기 (https://github.com/kimcore/inko.kt)
 	implementation("com.github.kimcore", "inko.kt", "1.2")
@@ -76,7 +76,7 @@ dependencies {
 	// Expedia API
 	implementation("com.expediagroup:rapid-sdk:2.0.0")
 
-	runtimeOnly("org.postgresql:postgresql")
+//	runtimeOnly("org.postgresql:postgresql")
 //    runtimeOnly("mysql:mysql-connector-java")
 //    runtimeOnly("com.mysql:mysql-connector-j")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
