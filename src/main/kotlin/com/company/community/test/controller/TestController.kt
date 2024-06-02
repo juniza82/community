@@ -2,6 +2,9 @@ package com.company.community.test.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.company.community.common.provider.SlackProvider
+import com.company.community.intenal.entity.jpa.UsersEntity
+import com.company.community.internal.service.UserService
+import io.swagger.v3.oas.annotations.Operation
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.batch.core.repository.JobRepository
@@ -17,6 +20,7 @@ class TestController(
     private val jobRepository: JobRepository,
 //    private val elasticsearchOperations: ElasticsearchOperations,
     private val slackProvider: SlackProvider,
+    private val userService: UserService,
 
 //    private val testService: TestService,
 ) {
@@ -31,6 +35,14 @@ class TestController(
 //        testService.testSer()
     }
 
+    @GetMapping("/listAll")
+    @Deprecated(message = "이건 스웨거에서 사용안할때 사용")
+    @Operation(summary = "API 요약", description = "API 설명")
+    fun listAll(): List<UsersEntity> {
+        log.info("TEST LOG ::::::: ")
+
+        return userService.selectAllUser()
+    }
 
 }
 

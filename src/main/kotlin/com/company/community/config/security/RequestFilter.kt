@@ -1,28 +1,22 @@
 package com.company.community.config.security
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.company.community.common.constant.AgentKeys.Companion.BUSINESS_NUMBER_KEY
-import com.company.community.common.constant.AgentKeys.Companion.CALL_NUMBER_KEY
-import com.company.community.common.constant.AgentKeys.Companion.COMPANY_ADDRESS_KEY
-import com.company.community.common.constant.AgentKeys.Companion.COMPANY_NAME_KEY
-import com.company.community.common.constant.AgentKeys.Companion.EMAIL_KEY
-import com.company.community.common.constant.AgentKeys.Companion.FAX_NUMBER_KEY
-import com.company.community.common.constant.AgentKeys.Companion.JWT_KEY
-import com.company.community.common.constant.AgentKeys.Companion.LOGO_URL_KEY
-import com.company.community.common.constant.AgentKeys.Companion.PHONE_NUMBER_KEY
-import com.company.community.common.constant.AgentKeys.Companion.TRAVEL_AGENT_ID_KEY
-import com.company.community.common.constant.AgentKeys.Companion.USER_ID_KEY
-import com.company.community.config.utils.ResponseEntityUtils.Companion.getFailedResponseDto
-import jakarta.annotation.PostConstruct
-import jakarta.servlet.FilterChain
-import jakarta.servlet.http.HttpServletRequest
-import jakarta.servlet.http.HttpServletResponse
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.springframework.web.filter.OncePerRequestFilter
+import org.springframework.stereotype.Component
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
-import org.springframework.stereotype.Component
-import org.springframework.web.filter.OncePerRequestFilter
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
+import jakarta.annotation.PostConstruct
+import jakarta.servlet.FilterChain
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.company.community.common.constant.AgentKeys.Companion.COMPANY_ID_KEY
+import com.company.community.common.constant.AgentKeys.Companion.USER_ID_KEY
+import com.company.community.common.constant.AgentKeys.Companion.JWT_KEY
+import com.company.community.config.utils.ResponseEntityUtils.Companion.getFailedResponseDto
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.context.SecurityContextHolder
 
 @Component
 class RequestFilter(
@@ -35,7 +29,6 @@ class RequestFilter(
     private val swaggerUris = arrayOf("/swagger-ui", "/v3/api-docs")
     private val lifeCycleCheckUri = "/healthcheck"
     private val cacheUri = "/cache"
-    private val defaultHeadspaCommissionValue = 1.0
 
     @PostConstruct
     fun init() {
@@ -61,16 +54,8 @@ class RequestFilter(
 //            return
 //        }
 
+        val companyId = request.getHeader(COMPANY_ID_KEY)
         val userId = request.getHeader(USER_ID_KEY)
-        val travelAgentId = request.getHeader(TRAVEL_AGENT_ID_KEY)
-        val companyName = request.getHeader(COMPANY_NAME_KEY)
-        val address = request.getHeader(COMPANY_ADDRESS_KEY)
-        val businessNum = request.getHeader(BUSINESS_NUMBER_KEY)
-        val callNum = request.getHeader(CALL_NUMBER_KEY)
-        val fax = request.getHeader(FAX_NUMBER_KEY)
-        val email = request.getHeader(EMAIL_KEY)
-        val logo = request.getHeader(LOGO_URL_KEY)
-        val phone = request.getHeader(PHONE_NUMBER_KEY)
         val jwtToken = request.getHeader(JWT_KEY)
 
 //        if (
@@ -83,7 +68,6 @@ class RequestFilter(
 //                headers[it] = request.getHeader(it)
 //            }
 //
-//            // TODO 필터를 어떻게 활용할지 고민
 //            log.error("유저와 공급사 정보를 확인 할 수 없습니다. : url - {}, headers - {}", uriStr, headers)
 //            setFailureResponse(response)
 ////            return
@@ -91,20 +75,20 @@ class RequestFilter(
 
 //        SecurityContextHolder.getContext().authentication =
 //            UsernamePasswordAuthenticationToken(
-////                TravelAgent(
-////                    userId = userId,
-////                    id = travelAgentId,
-////                    name = UriEncoder.decode(companyName),
-////                    address = UriEncoder.decode(address),
-////                    businessNumber = businessNum,
-////                    telNumber = callNum,
-////                    faxNumber = fax,
-////                    email = UriEncoder.decode(email),
-////                    logoUrl = UriEncoder.decode(logo),
-////                    mobileNumber = phone,
-////                    jwtToken = jwtToken,
-////                    eodingDiscountPercentage = getTravelAgentHotelEodingCommissionPercentage(travelAgentId)
-////                ),
+//                TravelAgent(
+//                    userId = userId,
+//                    id = travelAgentId,
+//                    name = UriEncoder.decode(companyName),
+//                    address = UriEncoder.decode(address),
+//                    businessNumber = businessNum,
+//                    telNumber = callNum,
+//                    faxNumber = fax,
+//                    email = UriEncoder.decode(email),
+//                    logoUrl = UriEncoder.decode(logo),
+//                    mobileNumber = phone,
+//                    jwtToken = jwtToken,
+//                    eodingDiscountPercentage = getTravelAgentHotelEodingCommissionPercentage(travelAgentId)
+//                ),
 //                null,
 //                emptyList()
 //            )

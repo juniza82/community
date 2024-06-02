@@ -1,7 +1,7 @@
 package com.company.community.test.service
 
 import com.company.community.intenal.entity.jpa.UsersEntity
-import com.company.community.internal.repository.jpa.UsersEntityRepository
+import com.company.community.internal.repository.jpa.UsersRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class TestService(
-//    final val usersEntityRepository: UsersEntityRepository,
+//    final val usersRepository: UsersRepository,
 //    final val usersMapper: UsersMapper,
 ) {
     
@@ -19,7 +19,7 @@ class TestService(
 ////        searchText: String,
 ////        pageable: Pageable
 //    ): List<UsersEntity> {
-//        return usersEntityRepository.findAll()
+//        return usersRepository.findAll()
 //    }
 
 }
