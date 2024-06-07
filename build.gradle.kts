@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val jdslVersion = "3.4.1"
+val kotestVersion = "5.9.0"
 
 plugins {
 	id("org.springframework.boot") version "3.3.0"
@@ -86,6 +87,14 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// Test framework
+	testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+	// Assertion library
+	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
+	// https://mvnrepository.com/artifact/io.mockk/mockk
+	testImplementation("io.mockk:mockk:1.13.11")
+
 }
 
 tasks.withType<KotlinCompile> {

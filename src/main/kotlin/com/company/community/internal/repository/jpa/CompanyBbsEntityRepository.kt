@@ -1,13 +1,14 @@
 package com.company.community.internal.repository.jpa
 
+import com.company.community.intenal.entity.jpa.CompanyBbsEntity
 import com.company.community.intenal.entity.jpa.UsersEntity
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface UsersEntityRepository : JpaRepository<UsersEntity, Int>, UsersCustomRepository {
+interface CompanyBbsEntityRepository : JpaRepository<CompanyBbsEntity, Int>, CompanyBbsCustomRepository {
 //    fun findAll(codes: List<String>): List<UsersEntity>
 //    fun findById(id: Int): UsersEntity
 }
 
-interface UsersCustomRepository {
-    fun findByUserName(filter: String): List<UsersEntity>
+interface CompanyBbsCustomRepository {
+
 }
