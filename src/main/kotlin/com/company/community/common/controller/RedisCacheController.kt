@@ -14,14 +14,14 @@ package com.company.community.common.controller
 //    private val redisCacheProvider: RedisCacheProvider
 //) {
 //
-//// 아직 redis 가 없음.
-////    @DeleteMapping("/all")
-////    fun deleteAllCaches(): ResponseEntity<BooleanRm> {
-////        return getResponseEntityWithBody(
-////            BooleanRm(
-////                data = redisCacheProvider.clearAllRedisCaches()
-////            )
-////        )
-////    }
+// 아직 redis 가 없음.
+//    @DeleteMapping("/all")
+//    fun deleteAllCaches(): ResponseEntity<BooleanRm> {
+//        return getResponseEntityWithBody(
+//            BooleanRm(
+//                data = redisCacheProvider.clearAllRedisCaches()
+//            )
+//        )
+//    }
 //
 //}

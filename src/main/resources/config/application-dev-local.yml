@@ -15,8 +15,8 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
     driver-class-name: org.mariadb.jdbc.Driver
     # DEV
-#    url: jdbc:log4jdbc:mysql://https://juniza82.synology.me:33077/community
-    url: jdbc:log4jdbc:mariadb://juniza82.synology.me:33077/community
+#    url: jdbc:log4jdbc:mysql://https://juniza82.synology.me:33077/community?useMysqlMetadata=true
+    url: jdbc:log4jdbc:mariadb://juniza82.synology.me:33077/community??useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useMysqlMetadata=true
     username: juniza82
     password: Lej281500!@
     # STG
@@ -31,6 +31,9 @@ spring:
 #    uris: 3.34.190.160:9201
 #    username: admin
 #    password: admin
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 3000
 #  autoconfigure:
 #    exclude: org.opensearch.spring.boot.autoconfigure.OpenSearchRestClientAutoConfiguration
   codec:
@@ -42,6 +45,12 @@ spring:
 #      host: 3.34.190.160
 #      port: 6380
 #      database: 15
+#    lettuce:
+#      pool:
+#        min-idle: 1
+#        max-idle: 8
+#        max-active: 8
+#        max-wait: 2000ms
 
   main:
     allow-bean-definition-overriding: true

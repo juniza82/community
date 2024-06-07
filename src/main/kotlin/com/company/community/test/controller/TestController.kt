@@ -39,5 +39,4 @@ class TestController(
         testService.insertCompanyBbs(companyBbsRequestDto)
     }
 
-
 }

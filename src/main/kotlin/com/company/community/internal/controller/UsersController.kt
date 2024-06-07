@@ -12,25 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/user")
-class HelloController(
+class UsersController(
     private val objectMapper: ObjectMapper,
-    private val jobRepository: JobRepository,
-//    private val elasticsearchOperations: ElasticsearchOperations,
-//    private val slackProvider: SlackProvider,
     private val userService: UserService,
 ) {
 
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
 
-    @GetMapping("/listAll")
+    // get post put delete
+    // user
+
+    // 유저 조회 정보
+    @GetMapping("/users")
     @Deprecated(message = "이건 스웨거에서 사용안할때 사용")
     @Operation(summary = "API 요약", description = "API 설명")
-    fun errorLogTest(): List<UsersEntity> {
-        log.info("TEST LOG ::::::: ")
+    fun getUsers(): List<UsersEntity> {
+        log.info("전체 요저 정보 조히 시작")
 
         return userService.selectAllUser()
     }
+
+
 
 
 }

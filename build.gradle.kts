@@ -36,9 +36,9 @@ dependencies {
 	implementation("io.awspring.cloud:spring-cloud-starter-aws-secrets-manager-config:2.4.4")
 
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
-	implementation("org.opensearch.client:spring-data-opensearch-starter:1.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 	implementation ("org.springframework.boot:spring-boot-starter-data-redis")
+//	implementation("org.opensearch.client:spring-data-opensearch-starter:1.2.0")
 
 	implementation("com.fasterxml.jackson.core:jackson-core:2.14.2")
 
@@ -63,9 +63,6 @@ dependencies {
 	// https://modelmapper.org/
 	implementation("org.modelmapper:modelmapper:3.2.0")
 
-	// 데이터베이스 버전 관리
-//	implementation("org.flywaydb:flyway-core")
-
 	//kotlin-jdsl
 	implementation("com.linecorp.kotlin-jdsl:jpql-dsl:$jdslVersion")
 	implementation("com.linecorp.kotlin-jdsl:jpql-render:$jdslVersion")
@@ -76,6 +73,9 @@ dependencies {
 
 	// Expedia API
 	implementation("com.expediagroup:rapid-sdk:2.0.0")
+
+	// 데이터베이스 버전 관리
+//	implementation("org.flywaydb:flyway-core:10.11.1")
 
 //	runtimeOnly("org.postgresql:postgresql")
 //    runtimeOnly("mysql:mysql-connector-java")
