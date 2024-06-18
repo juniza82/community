@@ -3,8 +3,7 @@ package com.company.community.test.service
 import com.company.community.intenal.entity.jpa.CompanyBbsEntity
 import com.company.community.intenal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.CompanyBbsRequestDto
-import com.company.community.internal.repository.jpa.CompanyBbsEntityRepository
-import com.company.community.internal.repository.jpa.UsersEntityRepository
+//import com.company.community.internal.repository.jpa.CompanyBbsEntityRepository
 import org.modelmapper.ModelMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional
 class TestService(
 //    final val usersEntityRepository: UsersEntityRepository,
 //    final val usersMapper: UsersMapper,
-    val companyBbsEntityRepository: CompanyBbsEntityRepository,
+//    val companyBbsEntityRepository: CompanyBbsEntityRepository,
     val modelMapper: ModelMapper,
 ) {
     
@@ -40,16 +39,16 @@ class TestService(
             var titleNum = "" + testNum + testNum + testNum
             var contentNum = "" + testNum + testNum + testNum + testNum + testNum
 
-        companyBbsEntityRepository.save(
-            CompanyBbsEntity().apply {
-                type = "notice"
-                title = "NOTICE - 제목" + titleNum
-                content = "NOTICE - 내용" + contentNum
-                frontFlag = 1
-                createdId = "admin"
-                modifiedId = "admin"
-            }
-        )
+//        companyBbsEntityRepository.save(
+//            CompanyBbsEntity().apply {
+//                companyType = "notice"
+//                title = "NOTICE - 제목" + titleNum
+//                content = "NOTICE - 내용" + contentNum
+//                frontFlag = 1
+//                createdId = "admin"
+//                modifiedId = "admin"
+//            }
+//        )
         }
     }
 

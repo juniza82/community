@@ -131,5 +131,4 @@ open class UsersEntity {
     @Comment("회원수정ID")
     @Column(name = "modified_id", nullable = false)
     open var modifiedId: String? = null
-
 }

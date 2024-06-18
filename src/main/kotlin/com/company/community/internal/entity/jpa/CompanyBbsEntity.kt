@@ -6,9 +6,9 @@ import jakarta.validation.constraints.Size
 import org.hibernate.annotations.Comment
 import java.time.LocalDateTime
 
-@Entity
+//@Entity
 @Comment("회사에서 사용하는 게시판들")
-@Table(name = "CompanyBbs")
+//@Table(name = "Company_bbs")
 open class CompanyBbsEntity {
 
     @Id
@@ -18,8 +18,8 @@ open class CompanyBbsEntity {
     open var userId: Int = 0
 
     @Comment("게시판구분")
-    @Column(name = "type")
-    open var type: String? = null
+    @Column(name = "company_type")
+    open var companyType: String? = null
 
     @Comment("제목")
     @Column(name = "title")
@@ -58,5 +58,4 @@ open class CompanyBbsEntity {
     @Comment("회원수정ID")
     @Column(name = "modified_id", nullable = false)
     open var modifiedId: String? = null
-
 }

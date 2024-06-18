@@ -75,7 +75,9 @@ dependencies {
 	implementation("com.expediagroup:rapid-sdk:2.0.0")
 
 	// 데이터베이스 버전 관리
-//	implementation("org.flywaydb:flyway-core:10.11.1")
+	implementation("org.flywaydb:flyway-core:10.15")
+	implementation("org.flywaydb:flyway-mysql:10.15.0")
+
 
 //	runtimeOnly("org.postgresql:postgresql")
 //    runtimeOnly("mysql:mysql-connector-java")

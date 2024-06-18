@@ -6,24 +6,18 @@ import com.company.community.intenal.entity.jpa.CompanyBbsEntity
 import com.company.community.intenal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.UserDto
 import com.company.community.internal.dto.request.CompanyBbsRequestDto
-import com.company.community.internal.repository.jpa.CompanyBbsEntityRepository
-import com.company.community.internal.repository.jpa.UsersEntityRepository
-import org.apache.coyote.http11.Constants.a
-import org.modelmapper.ModelMapper
+//import com.company.community.internal.repository.jpa.CompanyBbsEntityRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
-import java.time.ZoneId
-import java.time.ZonedDateTime
-import kotlin.jvm.optionals.getOrNull
 
 
 @Service
 class CompanyBbsService(
 //    final val usersEntityRepository: UsersEntityRepository,
-    final val companyBbsEntityRepository: CompanyBbsEntityRepository,
-    final val modelMapper: ModelMapper,
+//    final val companyBbsEntityRepository: CompanyBbsEntityRepository,
+//    final val modelMapper: ModelMapper,
 ) {
     
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
@@ -35,9 +29,9 @@ class CompanyBbsService(
         log.info("DTO ::: {}", companyBbsRequestDto)
 
         var result = try {
-            companyBbsEntityRepository.save(
-                modelMapper.map(companyBbsRequestDto, CompanyBbsEntity::class.java)
-            )
+//            companyBbsEntityRepository.save(
+//                modelMapper.map(companyBbsRequestDto, CompanyBbsEntity::class.java)
+//            )
             BooleanRm().apply {
                 data = true
                 this.code = ""
