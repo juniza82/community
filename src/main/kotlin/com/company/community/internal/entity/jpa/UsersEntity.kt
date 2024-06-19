@@ -100,7 +100,7 @@ open class UsersEntity {
 
     @Comment("유저로그인 가능 유무 토큰유효여부")
     @Column(name = "user_authenticated")
-    open var userAuthenticated: String? = null
+    open var userAuthenticated: Int = 0
 
     @Comment("유저상태")
     @Column(name = "user_status")
