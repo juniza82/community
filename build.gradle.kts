@@ -33,7 +33,7 @@ dependencies {
 
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-	implementation("io.awspring.cloud:spring-cloud-starter-aws-secrets-manager-config:2.4.4")
+//	implementation("io.awspring.cloud:spring-cloud-starter-aws-secrets-manager-config:2.4.4")
 
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
@@ -75,7 +75,7 @@ dependencies {
 	implementation("com.expediagroup:rapid-sdk:2.0.0")
 
 	// 데이터베이스 버전 관리
-	implementation("org.flywaydb:flyway-core:10.15")
+	implementation("org.flywaydb:flyway-core:10.15.0")
 	implementation("org.flywaydb:flyway-mysql:10.15.0")
 
 
@@ -96,6 +96,9 @@ dependencies {
 	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 	// https://mvnrepository.com/artifact/io.mockk/mockk
 	testImplementation("io.mockk:mockk:1.13.11")
+
+	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
 }
 

@@ -15,13 +15,12 @@ import javax.crypto.SecretKey
 @Component
 class JWTTokenProvider (
     @Value("\${jwt.secret-key}")
-    private val secretKey: String,
-//    private val aesEncryptProvider: AESEncryptProvider
+    private val secretKey: String
 ) {
 
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
 
-    private val jwtTokenExpireDateLength = 180000 // 30분을 토큰의 유효 기간으로 설정함
+    private val jwtTokenExpireDateLength = 1_800_000   // 30분을 토큰의 유효 기간으로 설정함
     private var signKey: SecretKey? = null
 
     init {
@@ -50,7 +49,6 @@ class JWTTokenProvider (
 
         return try {
             getJwtBody(token)?.subject?.let {
-//                aesEncryptProvider.useAESToDecrypt(it)
                 it
             } ?: throw Exception()
         } catch (e: Exception) {
@@ -84,12 +82,34 @@ class JWTTokenProvider (
                 && getExpirationDateFromToken(token).after(Date())
     }
 
-    // 발급할 일은 없지만 일단 유지
     fun generateJWTToken(subject: String): String {
         return generateJWTToken(
             subject,
             System.currentTimeMillis(),
             jwtTokenExpireDateLength)
+//            1800000) // 30분
+//            600000) // 10분
+//            300000) // 5분
+//            60000) // 1분
+//            30000) // 30초
+    }
+
+    fun generateJWTToken(subject: String, lifeCycleLength: Int): String {
+
+        if (subject.isEmpty()) {
+            log.info("JWT 토큰 생성시 빈 String은 사용할 수 없습니다.")
+            return ""
+        }
+
+        return Jwts.builder()
+            .setClaims(mapOf<String, Any>())
+            .setSubject(subject)
+            .setIssuedAt(
+                Date(System.currentTimeMillis()))
+            .setExpiration(
+                Date(System.currentTimeMillis() + lifeCycleLength))
+            .signWith(signKey, SignatureAlgorithm.HS256)
+            .compact()
     }
 
     fun generateJWTToken(subject: String, nowMilliseconds: Long, lifeCycleLength: Int): String {
@@ -99,26 +119,16 @@ class JWTTokenProvider (
             return ""
         }
 
-        log.info("JWT 토큰 생성을 진행합니다.")
-        // 공급사 정보 암호화가 필요하여 해당 데이터 암호화 진행
-        val encryptedData = subject //aesEncryptProvider.useAESToEncrypt(subject)
+        return Jwts.builder()
+            .setClaims(mapOf<String, Any>())
+            .setSubject(subject)
+            .setIssuedAt(
+                Date(nowMilliseconds))
+            .setExpiration(
+                Date(nowMilliseconds + lifeCycleLength))
+            .signWith(signKey, SignatureAlgorithm.HS256)
+            .compact()
 
-        return if (encryptedData.isNotEmpty()) {
-            log.info("암호화 데이터를 토큰화 진행합니다.")
-
-            Jwts.builder()
-                .setClaims(mapOf<String, Any>())
-                .setSubject(encryptedData)
-                .setIssuedAt(
-                    Date(nowMilliseconds))
-                .setExpiration(
-                    Date(nowMilliseconds + lifeCycleLength))
-                .signWith(signKey, SignatureAlgorithm.HS256)
-                .compact()
-        } else {
-            log.info("암호화 실패로 토큰을 생성하지 못하였습니다.")
-            ""
-        }
     }
 
 }
