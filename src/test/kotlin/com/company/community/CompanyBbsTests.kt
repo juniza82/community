@@ -11,7 +11,7 @@ import org.springframework.test.context.TestPropertySource
 @Import(SecurityConfig::class)
 @TestPropertySource(properties = ["spring.profiles.active=dev-local"])
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class CommunityApplicationTests{
+class CompanyBbsTests{
 //	@Autowired private var mockMvc: MockMvc
 	//	private val modelMapper: ModelMapper = mockk()
 	//	private val companyBbsEntityRepository: CompanyBbsEntityRepository = mockk()

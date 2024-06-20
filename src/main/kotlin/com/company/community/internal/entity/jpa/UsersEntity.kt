@@ -58,11 +58,11 @@ open class UsersEntity {
     @Column(name = "user_name", length = 100)
     open var userName: String? = null
 
-    @Comment("유저성별")
-    @Column(name = "user_gender", length = 300)
+    @Comment("유저성별 (M:Man, W:Woman)")
+    @Column(name = "user_gender", length = 1)
     open var userGender: String? = null
 
-    @Comment("유저생년월일")
+    @Comment("유저생년월일 (ex. 1970.01.01)")
     @Column(name = "user_birthday")
     open var userBirthday: String? = null
 
@@ -82,8 +82,8 @@ open class UsersEntity {
     open var userPhone: String? = null
 
     @Size(max = 30)
-    @Comment("유저핸드폰번호확인")
-    @Column(name = "user_phone_check", length = 30)
+    @Comment("유저핸드폰번호확인 (Y, N)")
+    @Column(name = "user_phone_check", length = 1)
     open var userPhoneCheck: String? = null
 
     @Comment("유저등급")
@@ -99,8 +99,8 @@ open class UsersEntity {
     open var userVersion: String? = null
 
     @Comment("유저로그인 가능 유무 토큰유효여부")
-    @Column(name = "user_authenticated")
-    open var userAuthenticated: Int = 0
+    @Column(name = "user_authenticated", length = 1)
+    open var userAuthenticated: String = "N"
 
     @Comment("유저상태")
     @Column(name = "user_status")
@@ -111,8 +111,8 @@ open class UsersEntity {
     open var deletedDate: LocalDateTime = LocalDateTime.now()
 
     @Comment("회원탈퇴여부")
-    @Column(name = "deleted_flag")
-    open var deletedFlag: Int = 0
+    @Column(name = "deleted_flag", length = 1)
+    open var deletedFlag: String = "N"
 
     @NotNull
     @Comment("회원가입일")
@@ -125,10 +125,10 @@ open class UsersEntity {
 
     @NotNull
     @Comment("회원수정일")
-    @Column(name = "modified_date", nullable = false)
+    @Column(name = "modified_date")
     open var modifiedDate: LocalDateTime = LocalDateTime.now()
 
     @Comment("회원수정ID")
-    @Column(name = "modified_id", nullable = false)
+    @Column(name = "modified_id")
     open var modifiedId: String? = null
 }

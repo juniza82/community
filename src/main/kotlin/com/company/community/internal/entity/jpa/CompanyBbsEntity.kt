@@ -6,16 +6,16 @@ import jakarta.validation.constraints.Size
 import org.hibernate.annotations.Comment
 import java.time.LocalDateTime
 
-//@Entity
+@Entity
 @Comment("회사에서 사용하는 게시판들")
-//@Table(name = "Company_bbs")
+@Table(name = "Company_bbs")
 open class CompanyBbsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("ID")
     @Column(name = "id", nullable = false)
-    open var userId: Int = 0
+    open var id: Int = 0
 
     @Comment("게시판구분")
     @Column(name = "company_type")
@@ -37,9 +37,13 @@ open class CompanyBbsEntity {
     @Column(name = "ordering")
     open var ordering: Int = 999
 
-    @Comment("삭제플래그")
-    @Column(name = "front_flag")
-    open var frontFlag: Int = 0
+    @Comment("삭제일")
+    @Column(name = "deleted_date")
+    open var deletedDate: LocalDateTime = LocalDateTime.now()
+
+    @Comment("삭제여부")
+    @Column(name = "deleted_flag")
+    open var deleteㅇFlag: String = "N"
 
     @NotNull
     @Comment("회원가입일")
