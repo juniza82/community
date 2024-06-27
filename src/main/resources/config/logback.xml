@@ -27,6 +27,17 @@
         </rollingPolicy>
     </appender>-->
 
+
+    <!-- Pattern -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %clr(%5level) [%15.15t] [%X{request_id}] %clr(%-40.40logger{39}){cyan} : %m%n%wEx"/>
+    <!-- Request Thread Console Appender -->
+    <appender name="THREAD_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%boldWhite([%d{yyyy-MM-dd HH:mm:ss}:%-4relative]) %magenta([%thread]) %highlight(%-5level) %cyan(%logger{35}) - %msg%n</pattern>
@@ -93,18 +104,21 @@
     <springProfile name="dev-local">
         <root>
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="LOG_PATTERN" />
         </root>
     </springProfile>
 
     <springProfile name="stage-local">
         <root>
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="LOG_PATTERN" />
         </root>
     </springProfile>
 
     <springProfile name="prod-local">
         <root>
             <appender-ref ref="STDOUT" />
+            <appender-ref ref="LOG_PATTERN" />
         </root>
     </springProfile>
 

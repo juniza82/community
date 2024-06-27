@@ -1,5 +1,7 @@
 spring:
   security:
+    filter:
+      order: 10 # for logging filter
     user:
       name: community
       password: community
