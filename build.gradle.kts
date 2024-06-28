@@ -38,7 +38,7 @@ dependencies {
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
 	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
 	implementation ("org.springframework.boot:spring-boot-starter-data-redis")
-//	implementation("org.opensearch.client:spring-data-opensearch-starter:1.2.0")
+//	implementation("org.opensearch.client:spring-data-opensearch-starter:2.11.")
 
 	implementation("com.fasterxml.jackson.core:jackson-core:2.14.2")
 

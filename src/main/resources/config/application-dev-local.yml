@@ -20,14 +20,6 @@ spring:
     url: jdbc:log4jdbc:mariadb://juniza82.synology.me:33077/community?useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useMysqlMetadata=true
     username: juniza82
     password: Lej281500!@
-    # STG
-#    url: jdbc:log4jdbc:postgresql://localhost:5435/hotel
-#    username: expedia_user
-#    password: HEKkc5AJITYPolr
-    # PROD
-#    url: jdbc:log4jdbc:postgresql://localhost:5436/hotel
-#    username: expedia_user
-#    password: $ygrTmutSeN8fmp
     # elasticsearch:
 #    uris: 3.34.190.160:9201
 #    username: admin
