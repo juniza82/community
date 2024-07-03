@@ -7,7 +7,7 @@ import org.hibernate.annotations.Comment
 import java.time.LocalDateTime
 
 @Entity
-@Comment("회사에서 사용하는 게시판들")
+@Comment("회사에서 사용하는 게시판들(공지사항, FAQ, Q&A 등)")
 @Table(name = "Company_bbs")
 open class CompanyBbsEntity {
 
@@ -29,34 +29,32 @@ open class CompanyBbsEntity {
     @Column(name = "content")
     open var content: String? = null
 
-    @Comment("글확인수")
+    @Comment("글조회수")
     @Column(name = "view_count")
     open var viewCount: Int = 0
 
-    @Comment("정렬순서")
+    @Comment("정렬순서(숫자가 작을수록 먼저 보임)")
     @Column(name = "ordering")
     open var ordering: Int = 999
 
-    @Comment("삭제일")
+    @Comment("삭제일('YYYY-mm-dd')")
     @Column(name = "deleted_date")
     open var deletedDate: LocalDateTime = LocalDateTime.now()
 
-    @Comment("삭제여부")
+    @Comment("삭제여부('Y': 삭제, 'N': 삭제안함)")
     @Column(name = "deleted_flag")
     open var deleteㅇFlag: String = "N"
 
-    @NotNull
     @Comment("회원가입일")
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "created_date", nullable = false, updatable = false)
     open var createdDate: LocalDateTime = LocalDateTime.now()
 
     @Comment("회원생성ID")
     @Column(name = "created_id", nullable = false)
     open var createdId: String? = null
 
-    @NotNull
     @Comment("회원수정일")
-    @Column(name = "modified_date", nullable = false)
+    @Column(name = "modified_date", nullable = false, updatable = true)
     open var modifiedDate: LocalDateTime = LocalDateTime.now()
 
     @Comment("회원수정ID")

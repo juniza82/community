@@ -1,7 +1,7 @@
 package com.company.community.internal.service
 
 import com.company.community.intenal.entity.jpa.UsersEntity
-import com.company.community.internal.dto.UserDto
+import com.company.community.internal.dto.request.UserDto
 import com.company.community.internal.repository.jpa.UsersRepository
 import com.company.community.internal.repository.mapper.UsersTableMapper
 import org.modelmapper.ModelMapper
@@ -19,6 +19,15 @@ class UserService(
 ) {
     
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
+
+    fun insertUser(
+        userDto: UserDto
+    ) {
+        log.info("회원 등록 API 요청")
+//        usersRepository.save(
+//            modelMapper.map(userDto, UsersEntity::class.java)
+//        )
+    }
 
     fun selectAllUser(
 //        searchText: String,

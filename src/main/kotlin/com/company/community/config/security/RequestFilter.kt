@@ -42,17 +42,14 @@ class RequestFilter(
     ) {
 
         val uriStr: String = request.requestURI?.toString() ?: ""
-
-        println(uriStr)
-
-//        if (isSwaggerUri(uriStr)
-//            || uriStr == lifeCycleCheckUri
-//            || uriStr.startsWith(cacheUri)
-//        ) {
-//            log.info("$uriStr : 페이지 접근 확인")
-//            filterChain.doFilter(request, response)
-//            return
-//        }
+        if (isSwaggerUri(uriStr)
+            || uriStr == lifeCycleCheckUri
+            || uriStr.startsWith(cacheUri)
+        ) {
+            log.info("$uriStr : 페이지 접근 확인")
+            filterChain.doFilter(request, response)
+            return
+        }
 
         val companyId = request.getHeader(COMPANY_ID_KEY)
         val userId = request.getHeader(USER_ID_KEY)
@@ -108,7 +105,6 @@ class RequestFilter(
         if (uriStr == null) return false
         for (uri in swaggerUris)
             if (uriStr.startsWith(uri)) return true
-
         return false
     }
 

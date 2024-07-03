@@ -34,9 +34,6 @@ class CompanyBbsController(
     fun insertCompanyBbs(
         @RequestBody companyBbsRequestDto: CompanyBbsRequestDto
     ): ResponseEntity<BooleanRm> {
-        log.info("회사게시판 타입별로 등록 :: {}", companyBbsRequestDto.type)
-        log.info("DTO ::: {}", companyBbsRequestDto)
-
         return getResponseEntityWithBody(
             companyBbsService.insertCompanyBbs(companyBbsRequestDto)
         )

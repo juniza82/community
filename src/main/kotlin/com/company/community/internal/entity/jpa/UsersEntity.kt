@@ -82,7 +82,7 @@ open class UsersEntity {
     open var userPhone: String? = null
 
     @Size(max = 30)
-    @Comment("유저핸드폰번호확인 (Y, N)")
+    @Comment("유저핸드폰번호확인 ('Y', 'N')")
     @Column(name = "user_phone_check", length = 1)
     open var userPhoneCheck: String? = null
 
@@ -98,7 +98,7 @@ open class UsersEntity {
     @Column(name = "user_version")
     open var userVersion: String? = null
 
-    @Comment("유저로그인 가능 유무 토큰유효여부")
+    @Comment("유저로그인 가능 유무 토큰유효여부 ('Y', 'N')")
     @Column(name = "user_authenticated", length = 1)
     open var userAuthenticated: String = "N"
 
