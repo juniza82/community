@@ -24,18 +24,18 @@ class UsersController(
     // put delete
     // user
 
-    @PostMapping("")
+    @PostMapping("/user")
     @Operation(summary = "회원 등록 API", description = "회원 한명을 등록")
     fun postUser(
-        @RequestBody user: UserDto
+        @RequestBody userDto: UserDto
     ) {
         log.info("회원 등록 API 호출")
 
-        userService.insertUser(user)
+        userService.insertUser(userDto)
     }
 
     // 유저 조회 정보
-    @GetMapping("")
+    @GetMapping("/user")
     @Deprecated(message = "이건 스웨거에서 사용안할때 사용")
     @Operation(summary = "API 요약", description = "API 설명")
     fun getUsers(): List<UsersEntity> {

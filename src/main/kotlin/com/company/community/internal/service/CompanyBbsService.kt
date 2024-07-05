@@ -25,14 +25,18 @@ class CompanyBbsService(
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
 
     fun insertCompanyBbs(
+        bbsType: String,
         companyBbsRequestDto: CompanyBbsRequestDto
     ): BooleanRm {
-        log.info("회사게시판 타입별로 등록 :: {}", companyBbsRequestDto.bbsType)
-        log.info("DTO ::: {}", companyBbsRequestDto)
+        log.info("회사게시판 타입별로 등록 :: {}", bbsType)
 
         var result = try {
             companyBbsEntityRepository.save(
-                modelMapper.map(companyBbsRequestDto, CompanyBbsEntity::class.java)
+                modelMapper.map(companyBbsRequestDto, CompanyBbsEntity::class.java).apply {
+                    companyType = bbsType
+                    createdId = "1"
+                    modifiedId = "1"
+                }
             )
             BooleanRm().apply {
                 data = true
@@ -43,6 +47,7 @@ class CompanyBbsService(
         } catch (e: Exception) {
             log.error("회사게시판 타입 - {}, DTO - {}", companyBbsRequestDto.bbsType, companyBbsRequestDto)
             log.error("회사게시판 타입별로 등록에 실패했습니다. - {}", e.stackTrace)
+            log.error("회사게시판 타입별로 등록에 실패했습니다. - {}", e.message)
             BooleanRm(
                 data = false
             ).apply {

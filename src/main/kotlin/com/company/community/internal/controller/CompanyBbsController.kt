@@ -32,10 +32,11 @@ class CompanyBbsController(
     @PostMapping("/{bbsType}")
     @Operation(summary = "회사게시판(공지사항, FAQ) 관리 전체 등록", description = "회사게시판(공지사항, FAQ) 관리 전체 등록")
     fun insertCompanyBbs(
+        @PathVariable bbsType: String,
         @RequestBody companyBbsRequestDto: CompanyBbsRequestDto
     ): ResponseEntity<BooleanRm> {
         return getResponseEntityWithBody(
-            companyBbsService.insertCompanyBbs(companyBbsRequestDto)
+            companyBbsService.insertCompanyBbs(bbsType, companyBbsRequestDto)
         )
     }
 

@@ -2,6 +2,7 @@ package com.company.community.internal.service
 
 import com.company.community.internal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.UserDto
+import com.company.community.internal.entity.jpa.CompanyBbsEntity
 import com.company.community.internal.repository.jpa.UsersRepository
 import com.company.community.internal.repository.mapper.UsersTableMapper
 import org.modelmapper.ModelMapper
@@ -25,14 +26,13 @@ class UserService(
     ) {
         log.info("회원 등록 API 요청")
 
-        val aa = UsersEntity().apply {
-            this.userId = userDto.userId
-        }
-
         val a = modelMapper.map(userDto, UsersEntity::class.java)
 
         usersRepository.save(
-            modelMapper.map(userDto, UsersEntity::class.java)
+            modelMapper.map(userDto, UsersEntity::class.java).apply {
+                createdId = "1"
+                modifiedId = "1"
+            }
         )
     }
 
