@@ -1,7 +1,7 @@
 package com.company.community.internal.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.company.community.intenal.entity.jpa.UsersEntity
+import com.company.community.internal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.UserDto
 import com.company.community.internal.service.UserService
 import io.swagger.v3.oas.annotations.Operation
@@ -29,7 +29,8 @@ class UsersController(
     fun postUser(
         @RequestBody user: UserDto
     ) {
-        log.info("회원 등록 API 요청")
+        log.info("회원 등록 API 호출")
+
         userService.insertUser(user)
     }
 

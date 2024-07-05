@@ -11,7 +11,6 @@ class ModelMapperConfig {
     fun modelMapper() = ModelMapper().apply {
         configuration.setFieldMatchingEnabled(true)
         configuration.setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE)
-        configuration.setFieldMatchingEnabled(true)
         configuration.setAmbiguityIgnored(true)
     }
 }

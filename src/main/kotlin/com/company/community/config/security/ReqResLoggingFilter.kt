@@ -58,6 +58,7 @@ class ReqResLoggingFilter(
     ) {
 
         val uriStr: String = request.requestURI?.toString() ?: ""
+
         if (isSwaggerUri(uriStr)
             || uriStr == lifeCycleCheckUri
             || uriStr.startsWith(cacheUri)

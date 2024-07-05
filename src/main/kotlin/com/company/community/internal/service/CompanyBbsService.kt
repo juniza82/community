@@ -2,8 +2,8 @@ package com.company.community.internal.service
 
 import com.company.community.common.constant.DateConst
 import com.company.community.common.rm.BooleanRm
-import com.company.community.intenal.entity.jpa.CompanyBbsEntity
-import com.company.community.intenal.entity.jpa.UsersEntity
+import com.company.community.internal.entity.jpa.CompanyBbsEntity
+import com.company.community.internal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.CompanyBbsRequestDto
 import com.company.community.internal.repository.jpa.CompanyBbsRepository
 import com.company.community.internal.repository.jpa.UsersRepository

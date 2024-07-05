@@ -1,4 +1,4 @@
-package com.company.community.intenal.entity.jpa
+package com.company.community.internal.entity.jpa
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull

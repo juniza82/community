@@ -1,7 +1,7 @@
 package com.company.community.test.service
 
-import com.company.community.intenal.entity.jpa.CompanyBbsEntity
-import com.company.community.intenal.entity.jpa.UsersEntity
+import com.company.community.internal.entity.jpa.CompanyBbsEntity
+import com.company.community.internal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.CompanyBbsRequestDto
 //import com.company.community.internal.repository.jpa.CompanyBbsEntityRepository
 import org.modelmapper.ModelMapper

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
+/*
 @RestControllerAdvice
 class GeneralExceptionController {
     private val log: Logger = LoggerFactory.getLogger(this.javaClass)
@@ -28,4 +29,4 @@ class GeneralExceptionController {
             this.body?.message = "요청 오류가 확인되었습니다."
         }
     }
-}
+}*/

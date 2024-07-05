@@ -7,7 +7,7 @@ class UserDto(
     @Schema(description = "회원이름", required = false) var userName: String? = null,
     @Schema(description = "비밀번호", required = false) var userPassword: String? = null,
     @Schema(description = "성별(M:Man, W:Woman)", required = false) var userGender: String? = null,
-    @Schema(description = "유저생년월일 (ex. 1970.01.01)", required = false) var userBirthday: Int? = null,
+    @Schema(description = "유저생년월일 (ex. 1970.01.01)", required = false) var userBirthday: String? = null,
     @Schema(description = "유저이메일", required = false) var userEmail: String? = null,
     @Schema(description = "유저전화", required = false) var userTel: String? = null,
     @Schema(description = "유저핸드폰번호", required = false) var userPhone: String? = null,

@@ -24,7 +24,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 // AOP 에처 logging 을 처리 할것인가?
-@Aspect
+//@Aspect
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Component
 class RequestLoggingAspect(
@@ -93,7 +93,6 @@ class RequestLoggingAspect(
                 )
                 throw e // 8.
             }
-
 /*
 
             val originHeaders = mutableMapOf<String, String>()
@@ -135,6 +134,7 @@ class RequestLoggingAspect(
 
         } catch (e: Exception) {
             log.error("로그 생성 도중 Exception이 발생 하였습니다. - {}", e.stackTrace)
+            log.error("로그 생성 도중 Exception이 발생 하였습니다. - {}", e.message)
         }
 
         return joinPoint.proceed()

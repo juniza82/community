@@ -1,4 +1,4 @@
-package com.company.community.intenal.entity.jpa
+package com.company.community.internal.entity.jpa
 
 import jakarta.persistence.*
 import jakarta.validation.constraints.NotNull
@@ -14,43 +14,43 @@ open class UsersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("ID")
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     open var id: Int = 0
 
     @Comment("회원ID")
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id")
     open var userId: String? = null
 
     @Comment("비밀번호")
-    @Column(name = "user_password", nullable = false)
+    @Column(name = "user_password")
     open var userPassword: String? = null
 
     @Comment("보이는비밀번호")
-    @Column(name = "user_view_password", nullable = false)
+    @Column(name = "user_view_password")
     open var userViewPassword: String? = null
 
     @Comment("유저로그인수단")
-    @Column(name = "user_prodvider", nullable = false)
+    @Column(name = "user_prodvider")
     open var userProdvider: String? = null
 
     @Comment("유저애플")
-    @Column(name = "user_apple", nullable = false)
+    @Column(name = "user_apple")
     open var userApple: String? = null
 
     @Comment("유저구글")
-    @Column(name = "user_google", nullable = false)
+    @Column(name = "user_google")
     open var userGoogle: String? = null
 
     @Comment("유저네이버")
-    @Column(name = "user_naver", nullable = false)
+    @Column(name = "user_naver")
     open var userNaver: String? = null
 
     @Comment("유저라인")
-    @Column(name = "user_line", nullable = false)
+    @Column(name = "user_line")
     open var userLine: String? = null
 
     @Comment("유저카카오")
-    @Column(name = "user_kakao", nullable = false)
+    @Column(name = "user_kakao")
     open var userKakao: String? = null
 
     @Size(max = 100)
@@ -108,7 +108,7 @@ open class UsersEntity {
 
     @Comment("회원탈퇴일")
     @Column(name = "deleted_date")
-    open var deletedDate: LocalDateTime = LocalDateTime.now()
+    open var deletedDate: LocalDateTime? = LocalDateTime.now()
 
     @Comment("회원탈퇴여부")
     @Column(name = "deleted_flag", length = 1)
@@ -116,11 +116,11 @@ open class UsersEntity {
 
     @NotNull
     @Comment("회원가입일")
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "created_date")
     open var createdDate: LocalDateTime = LocalDateTime.now()
 
     @Comment("회원생성ID")
-    @Column(name = "created_id", nullable = false)
+    @Column(name = "created_id")
     open var createdId: String? = null
 
     @NotNull

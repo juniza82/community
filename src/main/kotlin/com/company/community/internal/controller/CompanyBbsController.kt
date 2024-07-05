@@ -3,7 +3,7 @@ package com.company.community.internal.controller
 import com.company.community.common.rm.BooleanRm
 import com.company.community.config.utils.ResponseEntityUtils.Companion.getResponseEntityWithBody
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.company.community.intenal.entity.jpa.UsersEntity
+import com.company.community.internal.entity.jpa.UsersEntity
 import com.company.community.internal.dto.request.CompanyBbsRequestDto
 import com.company.community.internal.service.CompanyBbsService
 import com.company.community.internal.service.UserService
